@@ -18,3 +18,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from clipboard 
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste from clipboard above' })
 vim.keymap.set({ 'n', 'v' }, 'y', '"+y', { desc = 'Yank to clipboard' })
 vim.keymap.set('n', 'Y', '"+y$', { desc = 'Yank to clipboard' })
+
+-- Commenting
+-- vim.keymap.set({'i', 'n'}, '<C-/>', 
