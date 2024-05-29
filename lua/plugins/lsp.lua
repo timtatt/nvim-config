@@ -35,6 +35,24 @@ return {
       local servers = {
         tailwindcss = {},
         html = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = {
+                  ignore = { 'E111', 'E121', 'W391' },
+                  maxLineLength = 120
+                },
+                autopep8 = {
+                  enabled = false
+                },
+                yapf = {
+                  enabled = false
+                },
+              }
+            }
+          }
+        },
         lua_ls = {
           settings = {
             Lua = {

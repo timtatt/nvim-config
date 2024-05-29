@@ -1,30 +1,23 @@
 return {
   {
-    'stevearc/conform.nvim',
-    lazy = false,
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_fallback = true }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
-    opts = {
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        local disable_filetypes = { c = true, cpp = true }
-        return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+  'nvimtools/none-ls.nvim',
+    config = function()
+      local null_ls = require('null-ls')
+
+      null_ls.setup {
+        debug = false,
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.yapf.with({
+            extra_args = {'--style={based_on_style: pep8, indent_width: 2, column_limit: 120, continuation_indent_width: 2, each_dict_entry_on_separate_line: True}'}
+          }),
+          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.terraform_fmt,
+          null_ls.builtins.formatting.spell
         }
-      end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        html = { 'prettierd' },
-      },
-    },
-  },
+      }
+
+      vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat buffer' })
+    end
+  }
 }

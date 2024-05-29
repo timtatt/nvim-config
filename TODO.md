@@ -8,10 +8,12 @@
 
 ## Nice to haves
 - tailwind custom css highlighting
+- fast keymap to alt file
 - markdown preview
 - debugger
 - git diff (preview)
 - Jenkins linting
 - show markers
 - show usages?
+- show previously visited files in telescope
 
