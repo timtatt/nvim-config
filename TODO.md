@@ -1,10 +1,7 @@
 ## Things that annoy me
-- comments continue on next line
-- indenting for css/js in html file
+- indenting for css/js/yaml in html file
 - commenting
-- Yaml indenting
 - Renaming should highlight the previous name
-- Autosave when moving buffers
 
 ## Nice to haves
 - tailwind custom css highlighting
