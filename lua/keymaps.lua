@@ -20,4 +20,4 @@ vim.keymap.set({ 'n', 'v' }, 'y', '"+y', { desc = 'Yank to clipboard' })
 vim.keymap.set('n', 'Y', '"+y$', { desc = 'Yank to clipboard' })
 
 -- Commenting
--- vim.keymap.set({'i', 'n'}, '<C-/>', 
+-- vim.keymap.set({'i', 'n'}, '<C-/>',
