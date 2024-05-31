@@ -1,8 +1,16 @@
 return {
   {
+    'williamboman/mason.nvim',
+    opts = {
+      registries = {
+        'github:nvim-java/mason-registry',
+        'github:mason-org/mason-registry',
+      },
+    },
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
@@ -41,17 +49,17 @@ return {
               plugins = {
                 pycodestyle = {
                   ignore = { 'E111', 'E121', 'W391' },
-                  maxLineLength = 120
+                  maxLineLength = 120,
                 },
                 autopep8 = {
-                  enabled = false
+                  enabled = false,
                 },
                 yapf = {
-                  enabled = false
+                  enabled = false,
                 },
-              }
-            }
-          }
+              },
+            },
+          },
         },
         lua_ls = {
           settings = {
@@ -64,7 +72,6 @@ return {
         },
       }
 
-      require('mason').setup()
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
