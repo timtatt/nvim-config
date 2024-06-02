@@ -57,6 +57,9 @@ return {
                 yapf = {
                   enabled = false,
                 },
+                jedi = {
+                  environment = 'python3',
+                }
               },
             },
           },

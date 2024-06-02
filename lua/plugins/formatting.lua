@@ -15,6 +15,9 @@ return {
               '--style={based_on_style: pep8, indent_width: 2, column_limit: 120, continuation_indent_width: 2, each_dict_entry_on_separate_line: True}',
             },
           },
+          null_ls.builtins.formatting.shfmt.with {
+            extra_args = {'-i', '2', '-sr', '-ci' }
+          },
           null_ls.builtins.formatting.prettierd.with {
             env = {
               PRETTIERD_DEFAULT_CONFIG = '~/.config/nvim/config/prettier.config.js',
