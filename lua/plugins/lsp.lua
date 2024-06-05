@@ -43,6 +43,21 @@ return {
       local servers = {
         tailwindcss = {},
         html = {},
+        gopls = {},
+        ansiblels = {
+          settings = {
+            ansible = {
+              ansible = {
+                useFullyQualifiedCollectionNames = false,
+              },
+              validation = {
+                lint = {
+                  arguments = '-x name[casing],fqcn[action-core]',
+                },
+              },
+            },
+          },
+        },
         pylsp = {
           settings = {
             pylsp = {
@@ -59,7 +74,7 @@ return {
                 },
                 jedi = {
                   environment = 'python3',
-                }
+                },
               },
             },
           },
