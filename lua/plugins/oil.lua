@@ -22,7 +22,6 @@ return {
           is_hidden_file = function(name)
             return name == '.DS_Store'
           end,
-          show_hidden = true,
         },
       }
 

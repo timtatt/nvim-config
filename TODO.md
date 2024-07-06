@@ -1,5 +1,7 @@
+# TODO
 ## Things that annoy me
 - indenting for css/js/yaml in html file
+- KK will go into hover docs
 
 ## Nice to haves
 - tailwind custom css highlighting
@@ -10,5 +12,6 @@
 - Jenkins linting
 - show markers
 - show usages?
-- show previously visited files in telescope
+- renaming files and updating references
+
 

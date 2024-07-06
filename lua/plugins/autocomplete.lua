@@ -27,7 +27,9 @@ return {
       cmp.setup {
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            luasnip.lsp_expand(args.body, {
+              expand_params = false,
+            })
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
