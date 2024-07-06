@@ -97,12 +97,24 @@ return {
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      local lspconfig = require 'lspconfig'
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            lspconfig[server_name].setup(server)
+          end,
+          ['tsserver'] = function()
+            lspconfig['tsserver'].setup {
+              capabilities = capabilities,
+              commands = {
+                OrganizeImports = {
+                  require('typescript').organize_imports,
+                  description = 'Organize Imports',
+                },
+              },
+            }
           end,
         },
       }
