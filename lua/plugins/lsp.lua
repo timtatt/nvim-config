@@ -9,6 +9,14 @@ return {
     },
   },
   {
+    'zeioth/garbage-day.nvim',
+    dependencies = 'neovim/nvim-lspconfig',
+    event = 'VeryLazy',
+    opts = {
+      -- your options here
+    },
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
@@ -97,6 +105,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua',
         'prettier',
+        'rustywind',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
