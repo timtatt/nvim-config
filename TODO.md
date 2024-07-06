@@ -1,7 +1,5 @@
 ## Things that annoy me
 - indenting for css/js/yaml in html file
-- commenting
-- Renaming should highlight the previous name
 
 ## Nice to haves
 - tailwind custom css highlighting

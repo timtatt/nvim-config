@@ -1,9 +1,9 @@
-local general = vim.api.nvim_create_augroup("General", { clear = true })
+local general = vim.api.nvim_create_augroup('General', { clear = true })
 
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd('FileType', {
   callback = function()
-    vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+    vim.opt.formatoptions:remove { 'c' }
   end,
   group = general,
-  desc = "Turn off the stupid autocommenting",
+  desc = 'Turn off the stupid autocommenting',
 })

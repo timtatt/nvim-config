@@ -31,6 +31,9 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        performance = {
+          confirm_resolve_timeout = 150,
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -42,6 +45,7 @@ return {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<tab>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
           ['<C-Space>'] = cmp.mapping.complete {},
         },
         sources = {
