@@ -15,7 +15,6 @@ return {
           ['<CR>'] = 'actions.select',
           ['<C-s>'] = { 'actions.select_split', opts = { vertical = true } },
           ['<C-p>'] = 'actions.preview',
-          ['gx'] = 'actions.open_external',
         },
         use_default_keymaps = false,
         view_options = {
@@ -26,6 +25,11 @@ return {
       }
 
       vim.keymap.set('n', '-', oil.open, { desc = 'Open to previous directory' })
+      vim.keymap.set('n', 'go', function()
+        if vim.bo.filetype == 'oil' then
+          vim.cmd('!open ' .. oil.get_current_dir())
+        end
+      end, { desc = '[O]pen directory in Finder' })
     end,
   },
 }
