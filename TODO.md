@@ -8,11 +8,11 @@
 
 ## Nice to haves
 
-- tailwind custom css highlighting
-- debugger
-- git diff (preview)
-- Jenkins linting
-- show markers
-- show usages?
-- renaming files and updating references
-- git blame
+3. git diff (preview)
+4. git blame
+5. renaming files and updating references
+6. show usages?
+7. Jenkins linting
+8. running tests
+9. debugger
+10. tailwind custom css highlighting

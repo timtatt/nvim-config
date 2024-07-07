@@ -38,7 +38,11 @@ return {
       }
 
       vim.keymap.set('n', '<leader>f', function()
-        require('typescript').organize_imports()
+        local clients = vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
+        print(vim.inspect(clients))
+        for _, client in ipairs(clients) do
+          require('typescript').organize_imports()
+        end
 
         lsp_format.format {
           buf = vim.api.nvim_get_current_buf(),
