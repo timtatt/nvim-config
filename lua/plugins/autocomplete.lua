@@ -17,6 +17,7 @@ return {
       'buschco/nvim-cmp-ts-tag-close',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'luckasRanarison/tailwind-tools.nvim',
     },
     config = function()
       -- See `:help cmp`
@@ -64,5 +65,8 @@ return {
     event = 'InsertEnter',
     config = true,
     opts = {},
+  },
+  {
+    'windwp/nvim-ts-autotag',
   },
 }
