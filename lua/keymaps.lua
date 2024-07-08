@@ -20,3 +20,16 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Alternate File
 vim.keymap.set('n', '<C-E>', ':e#<CR>', { desc = 'Go to alternate file' })
+
+-- QuickFix
+vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Next item in QuickFix list' })
+vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Prev item in QuickFix list' })
+vim.keymap.set('n', '<leader>qo', ':copen<CR>', { desc = 'Open quickfix list' })
+vim.keymap.set('n', '<leader>qc', ':cclose<CR>', { desc = 'Close quickfix list' })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = 'Open [D]iagnostic in [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })

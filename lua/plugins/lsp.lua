@@ -12,9 +12,7 @@ return {
     'zeioth/garbage-day.nvim',
     dependencies = 'neovim/nvim-lspconfig',
     event = 'VeryLazy',
-    opts = {
-      -- your options here
-    },
+    opts = {},
   },
   {
     'neovim/nvim-lspconfig',
@@ -44,7 +42,9 @@ return {
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-          require('lsp_signature').on_attach()
+          require('lsp_signature').on_attach {
+            doc_lines = 0,
+          }
         end,
       })
 
