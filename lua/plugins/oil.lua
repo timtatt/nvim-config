@@ -17,6 +17,9 @@ return {
           ['<C-p>'] = 'actions.preview',
         },
         use_default_keymaps = false,
+        lsp_file_methods = {
+          autosave_changes = true,
+        },
         view_options = {
           is_hidden_file = function(name)
             return name == '.DS_Store'

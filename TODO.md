@@ -8,6 +8,9 @@
 ## Nice to haves
 
 1. renaming files and updating references
-2. running tests
-3. debugger
-4. tailwind custom css highlighting
+2. tailwind custom css highlighting
+
+## Something to consider in future
+
+- Running tests
+- Debugger
