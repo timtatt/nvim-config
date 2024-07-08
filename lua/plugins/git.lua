@@ -18,6 +18,13 @@ return {
     end,
   },
   {
+    'niuiic/git-log.nvim',
+    dependencies = { 'niuiic/core.nvim' },
+    config = function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>hl', require('git-log').check_log, { desc = 'View git [h]unk [l]og' })
+    end,
+  },
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
