@@ -7,9 +7,6 @@
 
 ## Nice to haves
 
-1. renaming files and updating references
-2. tailwind custom css highlighting
-
 ## Something to consider in future
 
 - Running tests

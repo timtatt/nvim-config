@@ -1,6 +1,7 @@
 return {
   {
-    'stevearc/oil.nvim',
+    -- 'stevearc/oil.nvim',
+    dir = '~/apps/oil.nvim/',
     config = function()
       local oil = require 'oil'
 
