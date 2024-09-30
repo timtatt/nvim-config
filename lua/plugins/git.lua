@@ -1,27 +1,27 @@
 return {
   {
-    'akinsho/git-conflict.nvim',
-    config = function()
-      require('git-conflict').setup {
-        default_mappings = {
-          ours = 'co',
-          theirs = 'ct',
-          both = 'cb',
-          next = ']x',
-          prev = '[x',
-        },
-      }
-
-      vim.keymap.set('n', '<leader>gc', function()
-        vim.cmd 'GitConflictListQf'
-      end, { desc = '[G]it [C]onflicts' })
-    end,
-  },
-  {
     'niuiic/git-log.nvim',
     dependencies = { 'niuiic/core.nvim' },
     config = function()
       vim.keymap.set({ 'n', 'v' }, '<leader>hl', require('git-log').check_log, { desc = 'View git [h]unk [l]og' })
+    end,
+  },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      local neogit = require 'neogit'
+      neogit.setup {}
+
+      vim.keymap.set('n', '<leader>gs', function()
+        neogit.open {
+          cwd = vim.fn.expand '%:p:h',
+        }
+      end)
     end,
   },
   {
