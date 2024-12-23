@@ -1,14 +1,5 @@
 return {
   {
-    'williamboman/mason.nvim',
-    opts = {
-      registries = {
-        'github:nvim-java/mason-registry',
-        'github:mason-org/mason-registry',
-      },
-    },
-  },
-  {
     'zeioth/garbage-day.nvim',
     dependencies = 'neovim/nvim-lspconfig',
     event = 'VeryLazy',
@@ -17,15 +8,13 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
+      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'ray-x/lsp_signature.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
-      { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -41,10 +30,6 @@ return {
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-          require('lsp_signature').on_attach {
-            doc_lines = 0,
-          }
         end,
       })
 
@@ -77,12 +62,6 @@ return {
                   ignore = { 'E111', 'E121', 'W391' },
                   maxLineLength = 120,
                 },
-                autopep8 = {
-                  enabled = false,
-                },
-                yapf = {
-                  enabled = false,
-                },
                 jedi = {
                   environment = 'python3',
                 },
@@ -101,6 +80,7 @@ return {
         },
       }
 
+      -- install all of the above servers
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
@@ -110,6 +90,7 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       local lspconfig = require 'lspconfig'
+      require('mason').setup()
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)

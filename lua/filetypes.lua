@@ -9,11 +9,4 @@ vim.filetype.add {
       return 'yaml'
     end,
   },
-  filename = {
-    ['pipeline.dsl'] = 'groovy',
-    ['job.dsl'] = 'groovy',
-  },
-  pattern = {
-    ['Jenkinsfile.*'] = 'groovy',
-  },
 }

@@ -1,12 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
@@ -58,23 +54,12 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+
 require 'autocmd'
 require 'keymaps'
 require 'filetypes'
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then

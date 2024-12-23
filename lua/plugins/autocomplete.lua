@@ -1,4 +1,15 @@
 return {
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -38,10 +49,6 @@ return {
           confirm_resolve_timeout = 150,
         },
 
-        -- For an understanding of why these mappings were
-        -- chosen, you will need to read `:help ins-completion`
-        --
-        -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -52,6 +59,10 @@ return {
           ['<C-Space>'] = cmp.mapping.complete {},
         },
         sources = {
+          {
+            name = 'lazydev',
+            group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+          },
           { name = 'nvim-cmp-ts-tag-close' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
