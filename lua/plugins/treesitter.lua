@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'scss', 'bash', 'css', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'yaml', 'terraform' },
+      ensure_installed = { 'scss', 'bash', 'css', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'yaml', 'terraform', 'norg' },
       auto_install = true,
       highlight = {
         enable = true,

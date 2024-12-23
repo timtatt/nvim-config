@@ -75,6 +75,17 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Neorg telescope integrations
+      vim.keymap.set('n', '<leader>nh', '<Plug>(neorg.telescope.search_headings)', { desc = '[N]eorg Search [H]eadings' })
+
+      vim.keymap.set('n', '<leader>ns', function()
+        builtin.live_grep {
+          search_dirs = {
+            '~/Desktop/notes/',
+          },
+        }
+      end, { desc = '[N]eorg [S]earch' })
     end,
   },
 }
