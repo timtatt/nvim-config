@@ -7,9 +7,15 @@ return {
       conform.setup {
         formatters_by_ft = {
           lua = { 'stylua' },
+          xml = { 'xmlformatter' },
           python = { 'isort', 'black' },
-          javascript = { 'prettierd', 'prettier', stop_after_first = true },
-          html = { 'prettierd' },
+          javascript = { 'prettier', stop_after_first = true },
+          typescript = { 'prettier' },
+          json = { 'prettier' },
+          svg = { 'prettier' },
+          go = { 'gofmt', 'goimports' },
+          html = { 'prettier' },
+          bash = { 'shfmt' },
         },
         format_on_save = {
           timeout_ms = 500,
@@ -24,7 +30,7 @@ return {
       vim.keymap.set('n', '<leader>f', function()
         local clients = vim.lsp.get_clients {
           bufnr = vim.api.nvim_get_current_buf(),
-          name = 'tsserver',
+          name = 'ts_ls',
         }
         if #clients > 0 then
           require('typescript').organize_imports()

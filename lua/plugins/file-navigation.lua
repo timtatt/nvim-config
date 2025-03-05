@@ -15,6 +15,7 @@ return {
           ['<CR>'] = 'actions.select',
           ['<C-s>'] = { 'actions.select_split', opts = { vertical = true } },
           ['<C-p>'] = 'actions.preview',
+          ['gx'] = 'actions.open_external',
         },
         use_default_keymaps = false,
         lsp_file_methods = {

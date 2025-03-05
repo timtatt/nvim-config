@@ -18,6 +18,9 @@ return { -- Collection of various small independent plugins/modules
     -- To inline or multiline arguments with gS
     require('mini.splitjoin').setup {}
 
+    -- To add shortcuts for commenting
+    require('mini.comment').setup {}
+
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
