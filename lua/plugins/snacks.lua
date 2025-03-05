@@ -35,9 +35,16 @@ return {
       desc = 'Smart picker',
     },
     {
-      '<leader>sf',
+      '<leader><space>',
       function()
         Snacks.picker.smart()
+      end,
+      desc = 'Smart picker',
+    },
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
       end,
       desc = 'Smart picker',
     },
@@ -83,13 +90,6 @@ return {
         Snacks.picker.resume()
       end,
       desc = 'Resume',
-    },
-    {
-      '<leader>sg',
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = 'Grep',
     },
     {
       '<leader>sp',
@@ -158,7 +158,9 @@ return {
     {
       '<leader>gs',
       function()
-        Snacks.lazygit()
+        Snacks.lazygit.open {
+          cwd = Snacks.git.get_root(),
+        }
       end,
       desc = 'Lazygit',
     },
