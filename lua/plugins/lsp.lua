@@ -8,8 +8,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason.nvim',
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
@@ -22,54 +22,27 @@ return {
         end,
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      require('blink.cmp').get_lsp_capabilities(capabilities)
-
-      local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Disable',
-              },
-            },
-          },
-        },
-      }
-
-      -- install all of the above servers
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
+      local ensure_installed = {
         'stylua',
         'prettier',
         'isort',
         'black',
-        'rustywind',
+        'css-lsp',
         'yaml-language-server',
         'bash-language-server',
         'lua-language-server',
         'json-lsp',
         'gopls',
-        'typescript-language-server',
         'python-lsp-server',
         'html-lsp',
-        'tailwindcss',
-        'terraformls',
+        'tailwindcss-language-server',
+        'terraform-ls',
         'sqlfluff',
-      })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-      local lspconfig = require 'lspconfig'
-      require('mason').setup()
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            lspconfig[server_name].setup(server)
-          end,
-        },
       }
+
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason').setup()
+      require('mason-lspconfig').setup {}
     end,
   },
 }

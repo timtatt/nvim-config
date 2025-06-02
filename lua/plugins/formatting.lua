@@ -11,6 +11,7 @@ return {
           python = { 'isort', 'black' },
           javascript = { 'prettier', stop_after_first = true },
           typescript = { 'prettier' },
+          typescriptreact = { 'prettier' },
           json = { 'prettier' },
           svg = { 'prettier' },
           go = { 'gofmt', 'goimports' },
