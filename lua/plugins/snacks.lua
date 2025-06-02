@@ -9,6 +9,7 @@ return {
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
+      picker = { enabled = true },
       notifier = { enabled = true },
       lazygit = { enabled = true },
       gitbrowser = {
@@ -33,6 +34,13 @@ return {
         Snacks.gitbrowse()
       end,
       desc = 'Smart picker',
+    },
+    {
+      '<leader>,',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = 'Buffers',
     },
     {
       '<leader><space>',
