@@ -1,5 +1,30 @@
 return {
   {
+    dependencies = { 'echasnovski/mini.icons' },
+    'A7Lavinraj/fyler.nvim',
+    config = function()
+      local fyler = require 'fyler'
+
+      fyler.setup {
+        default_file_explorer = true,
+        close_on_select = true,
+        views = {
+          explorer = {
+            win = {
+              kind = 'float',
+            },
+          },
+        },
+      }
+
+      vim.keymap.set('n', '-', function()
+        fyler.open {
+          cwd = Snacks.git.get_root(),
+        }
+      end)
+    end,
+  },
+  {
     'stevearc/oil.nvim',
     config = function()
       local oil = require 'oil'
@@ -28,7 +53,7 @@ return {
         },
       }
 
-      vim.keymap.set('n', '-', oil.open, { desc = 'Open to previous directory' })
+      vim.keymap.set('n', '_', oil.open, { desc = 'Open to previous directory' })
       vim.keymap.set('n', 'go', function()
         if vim.bo.filetype == 'oil' then
           vim.cmd('!open ' .. oil.get_current_dir())
