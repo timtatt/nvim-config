@@ -9,7 +9,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'mason-org/mason.nvim',
-      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
@@ -36,13 +35,20 @@ return {
         'python-lsp-server',
         'html-lsp',
         'tailwindcss-language-server',
-        'terraform-ls',
-        'sqlfluff',
       }
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
       require('mason').setup()
-      require('mason-lspconfig').setup {}
+
+      vim.lsp.set_log_level 'INFO'
+      vim.lsp.enable 'gopls'
+      vim.lsp.enable 'html'
+      vim.lsp.enable 'cssls'
+      vim.lsp.enable 'yamlls'
+      vim.lsp.enable 'bashls'
+      vim.lsp.enable 'jsonls'
+      vim.lsp.enable 'pylsp'
+      vim.lsp.enable 'lua_ls'
     end,
   },
 }

@@ -54,7 +54,7 @@ return {
       function()
         Snacks.picker.files()
       end,
-      desc = 'Smart picker',
+      desc = 'File picker',
     },
     {
       '<leader>/',
@@ -164,7 +164,7 @@ return {
       end,
     },
     {
-      '<leader>gs',
+      '<leader>lg',
       function()
         Snacks.lazygit.open {
           cwd = Snacks.git.get_root(),
