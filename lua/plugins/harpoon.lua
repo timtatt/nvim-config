@@ -5,7 +5,9 @@ return {
     config = function()
       local harpoon = require 'harpoon'
 
-      harpoon:setup()
+      harpoon:setup {
+        save_on_toggle = true,
+      }
 
       vim.keymap.set('n', '<leader>ha', function()
         harpoon:list():add()
@@ -14,19 +16,19 @@ return {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end, { desc = '[H]arpoon [O]pen list' })
 
-      vim.keymap.set('n', '<M-q>', function()
+      vim.keymap.set('n', '<M-u>', function()
         harpoon:list():select(1)
       end, { desc = 'View first file in Harpoon list' })
 
-      vim.keymap.set('n', '<M-w>', function()
+      vim.keymap.set('n', '<M-i>', function()
         harpoon:list():select(2)
       end, { desc = 'View second file in Harpoon list' })
 
-      vim.keymap.set('n', '<M-e>', function()
+      vim.keymap.set('n', '<M-o>', function()
         harpoon:list():select(3)
       end, { desc = 'View third file in Harpoon list' })
 
-      vim.keymap.set('n', '<M-r>', function()
+      vim.keymap.set('n', '<M-p>', function()
         harpoon:list():select(4)
       end, { desc = 'View fourth file in Harpoon list' })
 
