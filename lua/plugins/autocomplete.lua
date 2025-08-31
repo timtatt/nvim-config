@@ -14,7 +14,6 @@ return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
-    version = '1.*',
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -35,6 +34,10 @@ return {
             preselect = true,
             auto_insert = false,
           },
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
         },
       },
       keymap = {
@@ -64,80 +67,25 @@ return {
       end,
       signature = { enabled = true },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
+          },
+        },
       },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
     opts_extend = { 'sources.default' },
   },
-  -- { -- Autocompletion
-  --   'hrsh7th/nvim-cmp',
+  -- {
+  --   'windwp/nvim-autopairs',
   --   event = 'InsertEnter',
-  --   dependencies = {
-  --     {
-  --       'L3MON4D3/LuaSnip',
-  --       build = (function()
-  --         if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-  --           return
-  --         end
-  --         return 'make install_jsregexp'
-  --       end)(),
-  --       dependencies = {},
-  --     },
-  --     'saadparwaiz1/cmp_luasnip',
-  --     'buschco/nvim-cmp-ts-tag-close',
-  --     'hrsh7th/cmp-nvim-lsp',
-  --     'hrsh7th/cmp-path',
-  --     'luckasRanarison/tailwind-tools.nvim',
-  --   },
-  --   config = function()
-  --     -- See `:help cmp`
-  --     local cmp = require 'cmp'
-  --     local luasnip = require 'luasnip'
-  --     luasnip.config.setup {}
-  --
-  --     cmp.setup {
-  --       snippet = {
-  --         expand = function(args)
-  --           luasnip.lsp_expand(args.body, {
-  --             expand_params = false,
-  --           })
-  --         end,
-  --       },
-  --       completion = { completeopt = 'menu,menuone,noinsert' },
-  --       performance = {
-  --         confirm_resolve_timeout = 150,
-  --       },
-  --
-  --       mapping = cmp.mapping.preset.insert {
-  --         ['<C-n>'] = cmp.mapping.select_next_item(),
-  --         ['<C-p>'] = cmp.mapping.select_prev_item(),
-  --         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-  --         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-  --         ['<tab>'] = cmp.mapping.confirm { select = true },
-  --         ['<CR>'] = cmp.mapping.confirm { select = true },
-  --         ['<C-Space>'] = cmp.mapping.complete {},
-  --       },
-  --       sources = {
-  --         {
-  --           name = 'lazydev',
-  --           group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-  --         },
-  --         { name = 'neorg' },
-  --         { name = 'nvim-cmp-ts-tag-close' },
-  --         { name = 'nvim_lsp' },
-  --         { name = 'luasnip' },
-  --         { name = 'path' },
-  --       },
-  --     }
-  --   end,
+  --   config = true,
+  --   opts = {},
   -- },
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
-    opts = {},
-  },
   {
     'windwp/nvim-ts-autotag',
     config = function()
