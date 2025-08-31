@@ -164,7 +164,7 @@ return {
       end,
     },
     {
-      '<leader>lg',
+      '<C-s>',
       function()
         Snacks.lazygit.open {
           cwd = Snacks.git.get_root(),
