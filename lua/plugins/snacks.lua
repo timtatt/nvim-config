@@ -36,6 +36,13 @@ return {
       desc = 'Smart picker',
     },
     {
+      '<leader>mh',
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = 'Show [M]essages [H]istory',
+    },
+    {
       '<leader>,',
       function()
         Snacks.picker.buffers()
