@@ -34,7 +34,6 @@ return {
         'gopls',
         'python-lsp-server',
         'html-lsp',
-        'tailwindcss-language-server',
       }
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
