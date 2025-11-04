@@ -8,18 +8,14 @@ return {
       fyler.setup {
         default_file_explorer = true,
         close_on_select = true,
-        views = {
-          explorer = {
-            win = {
-              kind = 'float',
-            },
-          },
+        win = {
+          kind = 'float',
         },
       }
 
       vim.keymap.set('n', '-', function()
         fyler.open {
-          cwd = Snacks.git.get_root(),
+          dir = Snacks.git.get_root(),
         }
       end)
     end,
